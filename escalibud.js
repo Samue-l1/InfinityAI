@@ -120,7 +120,7 @@ const packname = process.env.STICKER_PACKNAME || 'InfinityAI';
     const arg = budy.trim().substring(budy.indexOf(" ") + 1);
     const arg1 = arg.trim().substring(arg.indexOf(" ") + 1);
 const wapresence = process.env.WA_PRESENCE || 'recording';
-    const autoread = process.env.AUTOREAD || 'TRUE';
+ const autoread = process.env.AUTOREAD || 'TRUE';
 const autobio = process.env.AUTOBIO || 'TRUE';
 const dev = process.env.OWNER || '923166234989'
 
@@ -455,10 +455,7 @@ if (wapresence === 'recording') {
 } else if (wapresence === 'typing') { 
 
   client.sendPresenceUpdate('composing', m.chat);
-    }
-    if (autoread === 'TRUE') { 
-             client.readMessages([m.key])
-    }
+}
 
     // Push Message To Console
     let argsLog = budy.length > 30 ? `${q.substring(0, 30)}...` : budy;
@@ -512,10 +509,7 @@ if (!m.key.fromMe) return
 			console.log(color(`Private Chat:`, 'green'))
             console.log(chalk.black(chalk.bgWhite('[ MESSAGE ]')), chalk.black(chalk.bgGreen(new Date)), chalk.black(chalk.bgBlue(budy || m.mtype)) + '\n' + chalk.magenta('=> From'), chalk.green(pushname), chalk.yellow(m.sender))
         }
-    if (autoread === 'TRUE' && !m.isGroup) { 
-             client.readMessages([m.key])
-    }
-
+    
 async function getYoutubeInfo(url) {
     try {
         const info = await ytdl.getInfo(url);
